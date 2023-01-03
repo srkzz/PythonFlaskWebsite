@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}UPLOAD{% endblock %}
+{% block content %}
+
+  <form action='' method = "POST">
+    <p>Nome <input datatype = "text" name = "name" value="{{employee.name}}"/></p>
+    <p>Idade <input datatype="integer" name = "age"  value="{{employee.age}}"/></p>
+    <p>Posição <input datatype = "text" name = "position" value="{{employee.position}}"/></p>
+    <p><input type = "submit" value = "Submit" /></p>
+  </form>
+{% endblock %}

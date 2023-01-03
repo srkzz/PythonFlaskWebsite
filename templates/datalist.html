@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}UPLOAD{% endblock %}
+{% block content %}
+    <br/>
+    <br/>
+   {% for employee in employees %}
+       <h3> {{employee}} </h3>
+       <a href="/data/update/{{employee.employee_id}}">Carrega aqui para editar os dados.</a>
+       <br/>
+       <a href="/data/delete/{{employee.employee_id}}">Carrega aqui para apagar os dados.</a>
+   {% endfor %}
+{% endblock %}

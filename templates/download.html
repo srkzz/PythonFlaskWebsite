@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Downloads{% endblock %}
+{% block content %}
+{{ moment.include_moment() }}
+
+    <table style="width:70%; margin:auto; table-layout: fixed;">
+      {% for filename, mtime, size in files -%}
+      <tr>
+        <td><a href="{{ url_for('download', filename=filename) }}" download>{{ filename }}</a></td>
+        <td>{{ moment(mtime, local=False).format('DD.MM.YYYY HH:mm') }}</td>
+        <td style="text-align:right;">{{ size | byte_units }}</td>
+      </tr>
+      {% endfor -%}
+    </table>
+    <script type="text/javascript">
+      (() => {
+        const elems = document.querySelectorAll('a[href][download]');
+        elems.forEach(elem => {
+          elem.addEventListener('click', evt => {
+            const isDonwload = window.confirm('Queres fazer download deste ficheiro?');
+            if (!isDonwload) { evt.preventDefault(); }
+          });
+        });
+      })();
+    </script>
+{% endblock %}

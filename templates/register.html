@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block content %}
+
+<div class="alert alert-dismissible alert-success">
+                      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                      <strong>BEM-VINDO</strong><a href="#" class="alert-link"></a>
+</div>
+<form  method="POST" action="">
+    {{ form.hidden_tag() }}
+    {{ form.username }}
+    {{ form.password }}
+    {{ form.submit }}
+</form>
+<a href="{{url_for('login')}}">Já tens uma conta? Inicia Sessão!</a>
+{% endblock %}
